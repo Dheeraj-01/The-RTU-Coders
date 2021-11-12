@@ -72,6 +72,19 @@ export const getHomePosts = async () => {
   // console.log(results);
   return results.postsConnection.edges;
 }
+export const getTags = async () => {
+  const query = gql`
+  query MyQuery {
+    tags {
+      slug
+    }
+  }
+  `
+
+  const results = await request(graphqlAPI, query);
+  // console.log(results);
+  return results.tags;
+}
 
 export const getRecentPosts = async () => {
   const query = gql`
@@ -144,10 +157,48 @@ export const getBlogDetails = async (slug) => {
     }
   
   `;
-  const result = await request(graphqlAPI, query, {slug});
+  const result = await request(graphqlAPI, query, { slug });
 
   return result.post;
 };
+
+
+export const getPostsByCategory = async (slug) => {
+  const query = gql`
+    query MyQuery($slug: String!) {
+      tags(where: {slug: $slug}) {
+        post(orderBy: createdAt_DESC) {
+          coder {
+                  bio
+                  name
+                  photo {
+                  url
+                  }
+              }
+              createdAt
+              featuredImage {
+                  url
+              }
+              slug
+              title
+              displayContent
+              tags {
+                  name
+                  slug
+              }
+        }
+      }
+    }
+    
+  
+  `;
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.tags;
+};
+
+
+
 export const getComments = async (slug) => {
   const query = gql`
     query MyQuery($slug: String!) {
@@ -158,7 +209,7 @@ export const getComments = async (slug) => {
       }
     }
   `;
-  const result = await request(graphqlAPI, query, {slug});
+  const result = await request(graphqlAPI, query, { slug });
 
   return result.comments;
 };
@@ -168,10 +219,10 @@ export const getComments = async (slug) => {
 export const submitComment = async (obj) => {
   const result = await fetch('/api/comments', {
     method: 'POST',
-    headers:{
-      'Content-Type' : 'application/json',
+    headers: {
+      'Content-Type': 'application/json',
     },
-    body : JSON.stringify(obj),
+    body: JSON.stringify(obj),
   });
   return result.json();
 }
