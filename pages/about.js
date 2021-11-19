@@ -1,9 +1,11 @@
 import React from 'react'
+import AboutCard from '../components/AboutCard'
 
 const About = () => {
+
     return (
-        <div>
-            Comming Soon
+        <div className="container mx-auto px-8 mb-8">
+            <AboutCard />
         </div>
     )
 }

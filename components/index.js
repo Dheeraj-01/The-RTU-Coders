@@ -7,3 +7,4 @@ export {default as BlogDetail} from './BlogDetail';
 export {default as Author} from './Author';
 export {default as CommentForm} from './CommentForm';
 export {default as Comments} from './Comments';
+export {default as AboutCard} from './AboutCard';

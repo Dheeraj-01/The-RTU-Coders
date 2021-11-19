@@ -226,3 +226,38 @@ export const submitComment = async (obj) => {
   });
   return result.json();
 }
+
+export const submitContactMessage = async (obj) => {
+  const result = await fetch('/api/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+  return result.json();
+}
+
+
+export const getMembers = async () => {
+  const query = gql`
+    query MyQuery {
+      members {
+        codechef
+        codeforces
+        designation
+        facebook
+        github
+        instagram
+        name
+        image {
+          url
+        }
+      }
+    }
+  `
+
+  const results = await request(graphqlAPI, query);
+  // console.log(results);
+  return results.members;
+}

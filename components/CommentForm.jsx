@@ -19,10 +19,10 @@ const CommentForm = ({ slug }) => {
 
     const handlePostSubmission = () => {
         setError(false);
-        let name = nameEl.current.value;
-        let comment = commentEl.current.value;
-        let email = emailEl.current.value;
-        let storeData = storeDataEl.current.checked;
+        const name = nameEl.current.value;
+        const comment = commentEl.current.value;
+        const email = emailEl.current.value;
+        const storeData = storeDataEl.current.checked;
 
         if (!comment || !name || !email) {
             setError(true);
