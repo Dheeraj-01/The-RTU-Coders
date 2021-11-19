@@ -12,11 +12,21 @@ const AboutCard = () => {
     return (
         <div >
             <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
-                <h1 className="font-bold text-xl border-b-2 py-3">About</h1>
-                <p className=" py-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque provident cum voluptatum recusandae in modi tenetur sed neque, sequi ratione sit molestias beatae rerum ea architecto voluptatem totam dolore inventore.</p>
+                <h1 className="font-bold text-xl border-b-2 py-2">About</h1>
+                <p className=" py-4">The RTU Coders is Coding Community of University Department, Rajasthan Technical University Kota. Who by passion and by choice learn, share, grow, and code together to build an environment of coding enthusiasts in campus.</p>
+                <p>The RTU Coders was initiated by <b>Abhishek Kumar</b> of Information Technology Branch (2017-21 Batch) on this beautiful Palindromic date 02-02-2020</p>
             </div>
             <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
-                <h1 className="text-center font-medium text-3xl mt-4 mb-10">RTU Coders</h1>
+                <h1 className="font-bold text-xl border-b-2 py-2">Mission</h1>
+                <p className=" py-4">Create an impact by building a strong programming community from problem solvers to problem setters and get placed in multinational companies. Crack Google Competitions, Facebook Hackercup, ICPC etc.</p>
+            </div>
+            <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
+                <h1 className="font-bold text-xl border-b-2 py-2">Vision</h1>
+                <p className=" py-4">Our vision is to make learning competitive programming accessible for students of RTU.</p>
+                
+            </div>
+            <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
+                <h1 className="text-center font-medium text-3xl mt-4 mb-10">RTU Coders Team</h1>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6">
                     {members.map((member, index) => (
                         <>
@@ -150,7 +160,7 @@ const AboutCard = () => {
                                     </a>
                                 </div>
                             </div>
-                            
+
                         </>
                     ))}
 
