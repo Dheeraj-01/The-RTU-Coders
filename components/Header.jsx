@@ -8,7 +8,8 @@ const links = [
     { name: "Blogs", url: "blogs" },
     { name: "Home", url: "" },
 ]
-const reverse_link = links.reverse();
+const curr_links = [...links];
+const reverse_links = links.reverse();
 
 const Header = () => {
 
@@ -54,7 +55,7 @@ const Header = () => {
                     {activeMenu && (
                         <>
                             <div className=" md:hidden lg:hidden bg-gray-50 float-right rounded-lg m-4 p-6">
-                                {reverse_link.map((category, index) => (
+                                {reverse_links.map((category, index) => (
                                     <Link key={index} href={`/${category.url}`}>
                                         <button className="block text-xl py-2 border-2 border-gray-600 rounded-lg mb-4 bg-yellow-100 self-center font-bold p-4" onClick={() => setActiveMenu(!activeMenu)}>{category.name}
                                         </button>
@@ -67,7 +68,7 @@ const Header = () => {
                 {activeMenu && (
                     <>
                         <div className="hidden md:contents lg:contents">
-                            {links.map((category, index) => (
+                            {curr_links.map((category, index) => (
                                 <Link key={index} href={`/${category.url}`}><span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">{category.name}</span></Link>
                             ))}
                         </div>
