@@ -8,6 +8,8 @@ const links = [
     { name: "Blogs", url: "blogs" },
     { name: "Home", url: "" },
 ]
+const reverse_link = links.reverse();
+
 const Header = () => {
 
     const [activeMenu, setActiveMenu] = useState(true);
@@ -39,7 +41,7 @@ const Header = () => {
                         <span className="cursor-pointer font-bold text-4xl text-white">The RTU Coders</span>
                     </Link>
 
-                    
+
                     <button className=" float-right bg-white p-1 rounded-lg md:hidden lg:hidden" onClick={() => setActiveMenu(!activeMenu)}>
                         <Image
                             src="https://img.icons8.com/material-outlined/48/000000/menu--v1.png"
@@ -52,9 +54,10 @@ const Header = () => {
                     {activeMenu && (
                         <>
                             <div className=" md:hidden lg:hidden bg-gray-50 float-right rounded-lg m-4 p-6">
-                                {links.reverse().map((category, index) => (
+                                {reverse_link.map((category, index) => (
                                     <Link key={index} href={`/${category.url}`}>
-                                        <div className="text-xl py-2 border-2 border-gray-600 rounded-lg mb-4 bg-yellow-100 text-center font-bold p-4">{category.name}</div>
+                                        <button className="block text-xl py-2 border-2 border-gray-600 rounded-lg mb-4 bg-yellow-100 self-center font-bold p-4" onClick={() => setActiveMenu(!activeMenu)}>{category.name}
+                                        </button>
                                     </Link>
                                 ))}
                             </div>
